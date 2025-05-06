@@ -34,15 +34,15 @@ from depth_anything_v2.dpt import DepthAnythingV2
 def main():
     # Parse command-line arguments
     parser = argparse.ArgumentParser(description='Generate depth maps and point clouds from images.')
-    parser.add_argument('--encoder', default='vitl', type=str, choices=['vits', 'vitb', 'vitl', 'vitg'],
+    parser.add_argument('--encoder', default='vits', type=str, choices=['vits', 'vitb', 'vitl', 'vitg'],
                         help='Model encoder to use.')
-    parser.add_argument('--load-from', default='', type=str, required=True,
+    parser.add_argument('--load-from', default='checkpoints/depth_anything_v2_metric_vkitti_vits.pth', type=str,
                         help='Path to the pre-trained model weights.')
-    parser.add_argument('--max-depth', default=20, type=float,
+    parser.add_argument('--max-depth', default=80, type=float,
                         help='Maximum depth value for the depth map.')
-    parser.add_argument('--img-path', type=str, required=True,
+    parser.add_argument('--img-path', type=str, default="/root/catkin_ws/src/modules_vins/examples/DepthAnything/apple-left.png",
                         help='Path to the input image or directory containing images.')
-    parser.add_argument('--outdir', type=str, default='./vis_pointcloud',
+    parser.add_argument('--outdir', type=str, default='/root/catkin_ws/src/modules_vins/examples/DepthAnything',
                         help='Directory to save the output point clouds.')
     parser.add_argument('--focal-length-x', default=470.4, type=float,
                         help='Focal length along the x-axis.')

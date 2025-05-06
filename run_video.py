@@ -12,9 +12,9 @@ from depth_anything_v2.dpt import DepthAnythingV2
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Depth Anything V2')
     
-    parser.add_argument('--video-path', type=str)
+    parser.add_argument('--video-path', type=str, default="/root/catkin_ws/src/modules_vins/examples/DepthAnything/apple-left.mp4")
     parser.add_argument('--input-size', type=int, default=518)
-    parser.add_argument('--outdir', type=str, default='./vis_video_depth')
+    parser.add_argument('--outdir', type=str, default='/root/catkin_ws/src/modules_vins/examples/DepthAnything')
     
     parser.add_argument('--encoder', type=str, default='vitl', choices=['vits', 'vitb', 'vitl', 'vitg'])
     
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         else: 
             output_width = frame_width * 2 + margin_width
         
-        output_path = os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + '.mp4')
+        output_path = os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + '_depth.mp4')
         out = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*"mp4v"), frame_rate, (output_width, frame_height))
         
         while raw_video.isOpened():

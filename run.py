@@ -12,11 +12,11 @@ from depth_anything_v2.dpt import DepthAnythingV2
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Depth Anything V2')
     
-    parser.add_argument('--img-path', type=str)
+    parser.add_argument('--img-path', type=str, default="/root/catkin_ws/src/modules_vins/examples/DepthAnything/apple-left.png")
     parser.add_argument('--input-size', type=int, default=518)
-    parser.add_argument('--outdir', type=str, default='./vis_depth')
+    parser.add_argument('--outdir', type=str, default='/root/catkin_ws/src/modules_vins/examples/DepthAnything')
     
-    parser.add_argument('--encoder', type=str, default='vitl', choices=['vits', 'vitb', 'vitl', 'vitg'])
+    parser.add_argument('--encoder', type=str, default='vits', choices=['vits', 'vitb', 'vitl', 'vitg'])
     
     parser.add_argument('--pred-only', dest='pred_only', action='store_true', help='only display the prediction')
     parser.add_argument('--grayscale', dest='grayscale', action='store_true', help='do not apply colorful palette')
@@ -65,9 +65,9 @@ if __name__ == '__main__':
             depth = (cmap(depth)[:, :, :3] * 255)[:, :, ::-1].astype(np.uint8)
         
         if args.pred_only:
-            cv2.imwrite(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + '.png'), depth)
+            cv2.imwrite(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + '_depth.png'), depth)
         else:
             split_region = np.ones((raw_image.shape[0], 50, 3), dtype=np.uint8) * 255
             combined_result = cv2.hconcat([raw_image, split_region, depth])
             
-            cv2.imwrite(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + '.png'), combined_result)
+            cv2.imwrite(os.path.join(args.outdir, os.path.splitext(os.path.basename(filename))[0] + '_depth.png'), combined_result)
