@@ -24,8 +24,5 @@ dependencies = [
 
 
 
-[tool.setuptools.packages]
-find = {}
-
 [tool.setuptools.packages.find]
 include = ["depth_anything_v2*"]
