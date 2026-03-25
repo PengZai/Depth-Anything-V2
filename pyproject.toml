@@ -24,6 +24,8 @@ dependencies = [
 
 
 
-[tool.setuptools]
-# Disable automatic package discovery to avoid conflicts
-packages = ["depth_anything_v2"]
+[tool.setuptools.packages]
+find = {}
+
+[tool.setuptools.packages.find]
+include = ["depth_anything_v2*"]
