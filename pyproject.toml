@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "depth_anything_v2"
+version = "0.0.1"
+authors = [
+  { name="PengZai", email="649365461@qq.com" }
+]
+description = "depth_anything_v2"
+readme = "README.md"
+requires-python = ">=3.10.0"
+
+dependencies = [
+    "gradio_imageslider",
+    "gradio==4.29.0",
+    "matplotlib",
+    "opencv-python",
+    "torch",
+    "torchvision",
+]
+
+
+
+[tool.setuptools]
+# Disable automatic package discovery to avoid conflicts
+packages = ["depth_anything_v2"]

@@ -44,9 +44,9 @@ def main():
                         help='Path to the input image or directory containing images.')
     parser.add_argument('--outdir', type=str, default='/root/catkin_ws/src/modules_vins/examples/DepthAnything',
                         help='Directory to save the output point clouds.')
-    parser.add_argument('--focal-length-x', default=470.4, type=float,
+    parser.add_argument('--focal-length-x', default=642.9165664800531, type=float,
                         help='Focal length along the x-axis.')
-    parser.add_argument('--focal-length-y', default=470.4, type=float,
+    parser.add_argument('--focal-length-y', default=641.9171825800378, type=float,
                         help='Focal length along the y-axis.')
 
     args = parser.parse_args()

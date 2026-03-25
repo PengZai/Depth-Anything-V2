@@ -2,3 +2,4 @@
 __pycache__/
 checkpoints/
 metric_depth/checkpoints/
+depth_anything_v2.egg-info/

@@ -12,7 +12,7 @@ from depth_anything_v2.dpt import DepthAnythingV2
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Depth Anything V2')
     
-    parser.add_argument('--img-path', type=str, default="/root/catkin_ws/src/modules_vins/examples/DepthAnything/apple-left.png")
+    parser.add_argument('--img-path', type=str, default="/root/catkin_ws/src/modules_vins/examples/DepthAnything/artroom1-left.png")
     parser.add_argument('--input-size', type=int, default=518)
     parser.add_argument('--outdir', type=str, default='/root/catkin_ws/src/modules_vins/examples/DepthAnything')
     
